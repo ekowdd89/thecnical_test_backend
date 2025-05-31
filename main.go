@@ -109,7 +109,10 @@ func (p *ParkingLot) Status() {
 
 func main() {
 	var lot *ParkingLot
-
+	if len(os.Args) < 2 {
+		log.Fatal("Please provide the input file input.txt as a command line argument.")
+		return
+	}
 	file, err := os.Open(os.Args[1])
 	if err != nil {
 		panic(err)
